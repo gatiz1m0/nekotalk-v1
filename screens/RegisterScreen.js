@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import { KeyboardAvoidingView } from 'react-native'
 import { StyleSheet, View } from 'react-native'
 import { Button, Input, Text } from 'react-native-elements'
+import { auth } from '../firebase'
 
 const RegisterScreen = ({ navigation }) => {
    const [name, setName] = useState('')
@@ -17,7 +18,13 @@ const RegisterScreen = ({ navigation }) => {
    }, [navigation])
 
    const register = () => {
-
+      auth.createUserWithEmailAndPassword(email, password)
+      .then( authUser => {
+         authUser.user.update({
+            displayName: name,
+            photoUrl: imageUrl || "https://t3.ftcdn.net/jpg/00/64/67/80/240_F_64678017_zUpiZFjj04cnLri7oADnyMH0XBYyQghG.jpg"
+         })
+      }).catch(error => alert(error.message) )
    }
 
    return (
