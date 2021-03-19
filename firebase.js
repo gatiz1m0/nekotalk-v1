@@ -1,13 +1,14 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-import * as firabase from 'firebase';
+import * as firebase from 'firebase';
+import 'firebase/firestore';
+import 'firebase/auth';
 
-const apikey = process.env.apikey;
 const appid = process.env.appid;
 const appdomain = process.env.appdomain;
 const bucket = process.env.bucket;
 
 const firebaseConfig = {
-  apiKey: apikey,
+  apiKey: "AIzaSyCkbJFomi6WMOlOhZwt1P0JJzhjnHbh1_Q",
   authDomain: appdomain,
   projectId: "msn-one",
   storageBucket: bucket,
