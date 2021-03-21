@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native'
 import { Button, Input, Image } from 'react-native-elements';
 import { StatusBar }  from 'expo-status-bar';
@@ -18,7 +18,7 @@ const LoginScreen = ({ navigation }) => {
    }, [])
 
    const signIn = () => {
-
+       auth.signInWithEmailAndPassword(email, password).cath(error => alert(error))
    }
 
    return (
@@ -37,6 +37,7 @@ const LoginScreen = ({ navigation }) => {
             />
             <Input placeholder="Password" required secureTextEntry type="password" 
             value={password} onChangeText={(text) => setPassword(text)}
+            onSubmitEditing={signIn}
             />
          </View>
          <Button containerStyle={styles.button} onPress={signIn}title="Login" />

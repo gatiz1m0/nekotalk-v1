@@ -17,7 +17,7 @@ const RegisterScreen = ({ navigation }) => {
       })
    }, [navigation])
 
-   const register = () => {3
+   const register = () => {
       auth.createUserWithEmailAndPassword(email, password)
       .then( (authUser) => {
          authUser.user.updateProfile({
