@@ -23,6 +23,7 @@ const HomeScreen = ({navigation}) => {
             }
          ))) )
       )
+      return unsubscribe
    }, [])
 
    useLayoutEffect( () => {
